@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Produkty.NewProductPage"
+             Title="NewProductPage">
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="Nowy produkt"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label Text="Nazwa"/>
+        <Entry x:Name="NazwaEntry" Placeholder="Wpisz nazwę produktu" />
+        
+        <Label Text="Cena" />
+        <Entry x:Name="Cena" Placeholder="0" Keyboard="Numeric" />
+        
+        <Label Text="Kategoria" />
+        <Picker x:Name="KategoriaPicker">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Procesory</x:String>
+                    <x:String>Płyte główne</x:String>
+                    <x:String>Telifony</x:String>
+                    <x:String>Karty Graficzne</x:String>
+                    <x:String>Dyski SSD</x:String>
+                    <x:String>Pamięci RAM</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <HorizontalStackLayout>
+            <Switch x:Name="AwaliableSwtich" />
+            <Label Text="Produkt dostępny" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <Button Text="Dodaj produkt" Clicked="Button_Clicked" />
+
+        <Label Text="Produkty:" Margin="0, 0, 0, 20"/>
+
+        <VerticalStackLayout x:Name="WrapperProduktuw" Spacing="10">
+        </VerticalStackLayout>
+
+        <Label x:Name="MyConsole"/>
+
+    </VerticalStackLayout>
+</ContentPage>
