@@ -20,9 +20,11 @@ public partial class NewProductPage : ContentPage
     {
 		string nazwa = NazwaEntry.Text;
 
-        double cena = double.Parse(Cena.Text, CultureInfo.InvariantCulture);
+        string poprawionyTekst = Cena.Text.Replace(',', '.');
 
-		string kategoria = KategoriaPicker.SelectedItem.ToString();
+        double cena = double.Parse(poprawionyTekst, CultureInfo.InvariantCulture);
+
+        string kategoria = KategoriaPicker.SelectedItem.ToString();
 
 		_produkty.Add(new Produkt(nazwa, cena, kategoria));
 
@@ -47,25 +49,24 @@ public partial class NewProductPage : ContentPage
 			{
                 HorizontalStackLayout myContainer = new HorizontalStackLayout
                 {
-                    Spacing = 20,
                     Padding = 10,
                 };
 
                 Label nazwa = new Label
 				{
-					Text = $"Nazwa: {p.Nazwa},",
+					Text = $"Nazwa: {p.Nazwa}, ",
 				};
                 myContainer.Children.Add(nazwa);
 
                 Label cena = new Label
                 {
-                    Text = $"Cena: {p.Cena},",
+                    Text = $"Cena: {p.Cena} zł, ",
                 };
                 myContainer.Children.Add(cena);
 
                 Label kategoria = new Label
                 {
-                    Text = $"Kategoria: {p.Kategoria},",
+                    Text = $"Kategoria: {p.Kategoria}.",
                 };
                 myContainer.Children.Add(kategoria);
 
